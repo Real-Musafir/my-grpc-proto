@@ -82,11 +82,11 @@ protoc-openapiv2-gateway:
 build-gateway: clean-gateway protoc-go-gateway 
 
 
-.PHONY: pipeline-init-gateway
-pipeline-init-gateway:
-	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
-	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
+# .PHONY: pipeline-init-gateway
+# pipeline-init-gateway:
+# 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
+# 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 
 
-.PHONY: pipeline-build-gateway
-pipeline-build-gateway: pipeline-init-gateway build-gateway protoc-openapiv2-gateway
+# .PHONY: pipeline-build-gateway
+# pipeline-build-gateway: pipeline-init-gateway build-gateway protoc-openapiv2-gateway
