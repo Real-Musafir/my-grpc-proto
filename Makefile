@@ -1,5 +1,5 @@
 # Replace this with your own github.com/<username>/<repository>
-GO_MODULE := github.com/alshahadath/my-grpc-proto
+GO_MODULE := github.com/real-musafir/my-grpc-proto
 
 .PHONY: clean
 clean:
@@ -16,7 +16,7 @@ endif
 protoc-go:
 	protoc --go_opt=module=${GO_MODULE} --go_out=. \
 	--go-grpc_opt=module=${GO_MODULE} --go-grpc_out=. \
-	./proto/hello/*.proto ./proto/payment/*.proto ./proto/transaction/*.proto 
+	./proto/hello/*.proto ./proto/payment/*.proto ./proto/transaction/*.proto \
 	# ./proto/bank/*.proto ./proto/bank/type/*.proto \
 	# ./proto/resiliency/*.proto \
 
@@ -82,11 +82,11 @@ protoc-openapiv2-gateway:
 build-gateway: clean-gateway protoc-go-gateway 
 
 
-# .PHONY: pipeline-init-gateway
-# pipeline-init-gateway:
-# 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
-# 	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
+.PHONY: pipeline-init-gateway
+pipeline-init-gateway:
+	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
+	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 
 
-# .PHONY: pipeline-build-gateway
-# pipeline-build-gateway: pipeline-init-gateway build-gateway protoc-openapiv2-gateway
+.PHONY: pipeline-build-gateway
+pipeline-build-gateway: pipeline-init-gateway build-gateway protoc-openapiv2-gateway
