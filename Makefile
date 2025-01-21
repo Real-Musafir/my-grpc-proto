@@ -1,5 +1,5 @@
 # Replace this with your own github.com/<username>/<repository>
-GO_MODULE := github.com/real-musafir/my-grpc-proto
+GO_MODULE := github.com/alshahadath/my-grpc-proto
 
 .PHONY: clean
 clean:
